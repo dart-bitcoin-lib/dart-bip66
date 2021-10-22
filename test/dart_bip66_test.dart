@@ -11,10 +11,10 @@ void main() {
     for (Fixture fixture in fixtures[FixtureEnum.valid]!) {
       Uint8List derBuffer = fixture.derBuffer!;
       test('check: returns true for ${fixture.der}', () {
-        expect(DER.check(derBuffer), isTrue);
+        expect(der.check(derBuffer), isTrue);
       });
       test('decode: ${fixture.der}', () {
-        var signature = DER.decode(derBuffer);
+        var signature = der.decode(derBuffer);
         expect(hex.encode(signature.r), equals(fixture.r));
         expect(hex.encode(signature.s), equals(fixture.s));
       });
@@ -31,12 +31,12 @@ void main() {
       Uint8List derBuffer = fixture.derBuffer!;
       test('check: returns false for ${fixture.der} (${fixture.exception})',
           () {
-        expect(DER.check(derBuffer), isFalse);
+        expect(der.check(derBuffer), isFalse);
       });
       test('throws "Exception: ${fixture.exception}" for ${fixture.der}', () {
         DER? signature;
         try {
-          signature = DER.decode(derBuffer);
+          signature = der.decode(derBuffer);
         } catch (e) {
           expect((e as Exception).toString(), equals(fixture.exception));
         }
@@ -53,7 +53,7 @@ void main() {
         Uint8List s = Uint8List.fromList(hex.decode(fixture.s!));
         Uint8List? buff;
         try {
-          buff = DER(r: r, s: s).encode();
+          buff = der.encode(DER(r: r, s: s));
         } catch (e) {
           expect((e as Exception).toString(), equals(fixture.exception));
         }

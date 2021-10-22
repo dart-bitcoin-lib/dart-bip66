@@ -9,6 +9,7 @@ class Fixture {
   Uint8List? get derBuffer {
     return Uint8List.fromList(hex.decode(der!));
   }
+
   String? r;
   String? s;
   String? exception;
