@@ -1,6 +1,6 @@
 name: dart_bip66
 description: Strict DER signatures. Dart package for BIP66 DER signatures encoding/decoding.
-version: 2.0.0
+version: 2.0.1
 homepage: https://github.com/dart-bitcoin-lib/dart-bip66
 repository: https://github.com/dart-bitcoin-lib/dart-bip66
 issue_tracker: https://github.com/dart-bitcoin-lib/dart-bip66/issues
